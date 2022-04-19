@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import StarWarsContext from '../context/StarWarsContext';
 
 function Table() {
-  const { data } = useContext(StarWarsContext);
+  const { data, filter } = useContext(StarWarsContext);
   console.log(data);
 
   return (
@@ -25,23 +25,26 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        {data && data.map((element) => (
-          <tr key={ element.name }>
-            <td>{element.name}</td>
-            <td>{element.rotation_period}</td>
-            <td>{element.orbital_period}</td>
-            <td>{element.diameter}</td>
-            <td>{element.climate}</td>
-            <td>{element.gravity}</td>
-            <td>{element.terrain}</td>
-            <td>{element.surface_water}</td>
-            <td>{element.population}</td>
-            <td>{element.films}</td>
-            <td>{element.created}</td>
-            <td>{element.edited}</td>
-            <td>{element.url}</td>
-          </tr>
-        ))}
+        {data && data
+          .filter((element) => element.name.toLowerCase()
+            .includes(filter.filterByName.name.toLowerCase()))
+          .map((element) => (
+            <tr key={ element.name }>
+              <td>{element.name}</td>
+              <td>{element.rotation_period}</td>
+              <td>{element.orbital_period}</td>
+              <td>{element.diameter}</td>
+              <td>{element.climate}</td>
+              <td>{element.gravity}</td>
+              <td>{element.terrain}</td>
+              <td>{element.surface_water}</td>
+              <td>{element.population}</td>
+              <td>{element.films}</td>
+              <td>{element.created}</td>
+              <td>{element.edited}</td>
+              <td>{element.url}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
