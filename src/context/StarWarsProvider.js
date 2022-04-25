@@ -22,7 +22,7 @@ function StarWarsProvider({ children }) {
     getPlanet();
   }, []);
 
-  // Requisito 2
+  // Requisito .2
   const getFilterByName = ({ target }) => {
     setFilter({ filterByName: { name: target.value } });
   };
