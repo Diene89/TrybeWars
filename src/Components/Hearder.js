@@ -14,6 +14,7 @@ function Header() {
       <select
         data-testid="column-filter"
         name="column"
+        id="column-filter"
         onChange={ getColumn }
       >
         <option value="population">population</option>

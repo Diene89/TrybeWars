@@ -65,6 +65,7 @@ function StarWarsProvider({ children }) {
     if (filterComparison === 'igual a') {
       setData(copyData.filter((element) => Number(element[filterColumn]) === Number(filterValue)))
     }
+    document.getElementById("column-filter").childNodes.forEach((element) => element.innerHTML === filterColumn && element.remove())
   }
 
   const contextValue = {
