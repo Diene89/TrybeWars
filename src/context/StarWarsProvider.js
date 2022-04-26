@@ -37,6 +37,7 @@ function StarWarsProvider({ children }) {
 
   const getValue = ({ target }) => {
     setFilterValue(target.value);
+    console.log(filterValue);
   };
 
   // Requisito 3
@@ -50,31 +51,21 @@ function StarWarsProvider({ children }) {
   const handleButtonClick = () => {
     // console.log(filterByNumericValues);
     getFilterByOption();
-    const { comparison } = filterComparison;
-    const { column } = filterColumn;
-    const { value } = filterValue;
-
-    if (comparison === 'maior que') {
-      return column > value;
+    const copyData = [...data]
+  //  const { comparison } = filterComparison;
+  //  const { column } = filterColumn;
+  //  const { value } = filterValue;
+    console.log(filterColumn);
+    if (filterComparison === 'maior que') {
+      setData(copyData.filter((element) => Number(element[filterColumn]) > Number(filterValue)))
     }
-    if (comparison === 'menor que') {
-      return column < value;
+    if (filterComparison === 'menor que') {
+      setData(copyData.filter((element) => Number(element[filterColumn]) < Number(filterValue)))
     }
-    if (comparison === 'igual a') {
-      return column === value;
+    if (filterComparison === 'igual a') {
+      setData(copyData.filter((element) => Number(element[filterColumn]) === Number(filterValue)))
     }
-
-    // switch (comparison) {
-    // case 'maior que':
-    //   return setData(data.filter((element) => element[column] > value));
-    // case 'menor que':
-    //   return setData(data.filter((element) => element[column] < value));
-    // case 'igual a':
-    //   return setData(data.filter((element) => element[column] === value));
-    // default:
-    //   break;
-    // }
-  };
+  }
 
   const contextValue = {
     data,

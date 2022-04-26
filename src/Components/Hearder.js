@@ -3,7 +3,7 @@ import StarWarsContext from '../context/StarWarsContext';
 
 function Header() {
   const { getFilterByName,
-    handleButtonClick, getColumn, getComparison, getValue } = useContext(StarWarsContext);
+    handleButtonClick, getColumn, getComparison, getValue, filterValue } = useContext(StarWarsContext);
   return (
     <form>
       <input
@@ -17,10 +17,10 @@ function Header() {
         onChange={ getColumn }
       >
         <option value="population">population</option>
-        <option value="orbital_period">orbital period</option>
+        <option value="orbital_period">orbital_period</option>
         <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation period</option>
-        <option value="surface_water">surface water</option>
+        <option value="rotation_period">rotation_period</option>
+        <option value="surface_water">surface_water</option>
       </select>
 
       <select
@@ -37,6 +37,7 @@ function Header() {
         data-testid="value-filter"
         name="value"
         type="number"
+        value={filterValue}
         onChange={ getValue }
       />
 
