@@ -51,22 +51,26 @@ function StarWarsProvider({ children }) {
   const handleButtonClick = () => {
     // console.log(filterByNumericValues);
     getFilterByOption();
-    const copyData = [...data]
-  //  const { comparison } = filterComparison;
-  //  const { column } = filterColumn;
-  //  const { value } = filterValue;
+    const copyData = [...data];
+    //  const { comparison } = filterComparison;
+    //  const { column } = filterColumn;
+    //  const { value } = filterValue;
     console.log(filterColumn);
     if (filterComparison === 'maior que') {
-      setData(copyData.filter((element) => Number(element[filterColumn]) > Number(filterValue)))
+      setData(copyData
+        .filter((element) => Number(element[filterColumn]) > Number(filterValue)));
     }
     if (filterComparison === 'menor que') {
-      setData(copyData.filter((element) => Number(element[filterColumn]) < Number(filterValue)))
+      setData(copyData
+        .filter((element) => Number(element[filterColumn]) < Number(filterValue)));
     }
     if (filterComparison === 'igual a') {
-      setData(copyData.filter((element) => Number(element[filterColumn]) === Number(filterValue)))
+      setData(copyData
+        .filter((element) => Number(element[filterColumn]) === Number(filterValue)));
     }
-    document.getElementById("column-filter").childNodes.forEach((element) => element.innerHTML === filterColumn && element.remove())
-  }
+    document.getElementById('column-filter').childNodes
+      .forEach((element) => element.innerHTML === filterColumn && element.remove());
+  };
 
   const contextValue = {
     data,

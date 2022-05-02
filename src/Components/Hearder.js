@@ -3,7 +3,8 @@ import StarWarsContext from '../context/StarWarsContext';
 
 function Header() {
   const { getFilterByName,
-    handleButtonClick, getColumn, getComparison, getValue, filterValue } = useContext(StarWarsContext);
+    handleButtonClick, getColumn, getComparison,
+    getValue, filterValue } = useContext(StarWarsContext);
   return (
     <form>
       <input
@@ -38,7 +39,7 @@ function Header() {
         data-testid="value-filter"
         name="value"
         type="number"
-        value={filterValue}
+        value={ filterValue }
         onChange={ getValue }
       />
 
