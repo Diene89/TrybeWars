@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import StarWarsContext from '../context/StarWarsContext';
+import './Table.css';
 
 function Table() {
   const { data, filter } = useContext(StarWarsContext);
   console.log(data);
 
   return (
-    <table>
+    <table className="table-container">
       <thead>
         <tr>
           <th>Name</th>

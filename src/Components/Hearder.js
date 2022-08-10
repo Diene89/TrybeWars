@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import StarWarsContext from '../context/StarWarsContext';
+import './Hearder.css';
 
 function Header() {
   const { getFilterByName,
     handleButtonClick, getColumn, getComparison,
     getValue, filterValue } = useContext(StarWarsContext);
   return (
-    <form>
+    <header>
       <input
         data-testid="name-filter"
         onChange={ getFilterByName }
@@ -51,7 +52,7 @@ function Header() {
         Filtrar
       </button>
 
-    </form>
+    </header>
   );
 }
 
